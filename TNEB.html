@@ -8,7 +8,18 @@
 
          function dis(val)
          {
-             document.getElementById("calc").value+=val
+            var amount = document.getElementById("calc").value;
+
+             if(amount.charAt(0) == "A") {
+                 clr();
+                 document.getElementById("calc").value+=val;
+             } 
+             else if(amount.length > 5) {
+                 return
+             }
+             else {
+                 document.getElementById("calc").value+=val
+             }
          }
            
          function solve()
@@ -30,7 +41,9 @@
                 b = (a - 500) * 6.6 + (100 * 3.5) + (300 * 4.6) + 50;
              }
 
-             document.getElementById("calc").value = "Amount : " + b
+             var ans = b.toString();
+
+             document.getElementById("calc").value = "Amount : " + ans;
              return false;
          }
            
