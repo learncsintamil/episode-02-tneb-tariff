@@ -10,6 +10,9 @@
          {
             var amount = document.getElementById("calc").value;
 
+             if(amount.includes(".") && val==".") {
+                 return
+             }
              if(amount.charAt(0) == "A") {
                  clr();
                  document.getElementById("calc").value+=val;
