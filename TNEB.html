@@ -1,149 +1,335 @@
-<!DOCTYPE html>  
-<html lang = "en">  
-<head>  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> TNEB Bill Calculator </title>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.form-style-10{
+	width:450px;
+	padding:30px;
+	margin:40px auto;
+	background: #FFF;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.form-style-10 .inner-wrap{
+	padding: 30px;
+	background: #F8F8F8;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+.form-style-10 h1{
+	text-align: center;
+	background: #2A88AD;
+	padding: 20px 0px 15px 0px;
+	margin: -30px -30px 30px -30px;
+	border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+}
+.form-style-10 h1 > span{
+	display: block;
+	margin-top: 2px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label{
+	display: block;
+	font: 13px Arial, Helvetica, sans-serif;
+	color: #888;
+	margin-bottom: 15px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 input[type="date"],
+.form-style-10 input[type="datetime"],
+.form-style-10 input[type="email"],
+.form-style-10 input[type="number"],
+.form-style-10 input[type="search"],
+.form-style-10 input[type="time"],
+.form-style-10 input[type="url"],
+.form-style-10 input[type="password"],
+.form-style-10 textarea,
+.form-style-10 select {
+	display: block;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border: 2px solid #fff;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
 
-<script>
+.form-style-10 .section{
+	font: normal 20px 'Bitter', serif;
+	color: #2A88AD;
+	margin-bottom: 5px;
+}
+.form-style-10 .section span {
+	background: #2A88AD;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border: 4px solid #fff;
+	font-size: 14px;
+	margin-left: -45px;
+	color: #fff;
+	margin-top: -3px;
+}
+.form-style-10 input[type="button"], 
+.form-style-10 input[type="submit"]{
+	background: #2A88AD;
+	padding: 8px 20px 8px 20px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+	font-size: 15px;
+}
+.form-style-10 input[type="button"]:hover, 
+.form-style-10 input[type="submit"]:hover{
+	background: #2A6881;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+.form-style-10 .privacy-policy{
+	float: right;
+	width: 250px;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #4D4D4D;
+	margin-top: 10px;
+	text-align: right;
+}
 
-         function dis(val)
-         {
-            var amount = document.getElementById("calc").value;
-
-             if(amount.includes(".") && val==".") {
-                 return
-             }
-             if(amount.charAt(0) == "A") {
-                 clr();
-                 document.getElementById("calc").value+=val;
-             } 
-             else if(amount.length > 5) {
-                 return
-             }
-             else {
-                 document.getElementById("calc").value+=val
-             }
-         }
-           
-         function solve()
-         {
-             let x = document.getElementById("calc").value
-             let a = parseInt(x);
-             let b;
-
-             if (a>=0 && a<=100){
-                b = "Free";
-			 } 
-             else if (a>100 && a<=200){
-                b = (a - 100) * 1.5 + 20;
-			 } 
-             else if (a>200 && a<=500){
-                b = (a - 200) * 3 + 200 + 30;
-			 } 
-             else{
-                b = (a - 500) * 6.6 + (100 * 3.5) + (300 * 4.6) + 50;
-             }
-
-             var ans = b.toString();
-
-             document.getElementById("calc").value = "Amount : " + ans;
-             return false;
-         }
-           
-         function clr()
-         {
-             document.getElementById("calc").value = ""
-         }
-
-</script>
-
-<style>  
-    h1 {  
-        text-align: center;  
-        padding: 23px;  
-        background-color: skyblue;  
-        color: white;  
-    }  
-    
-    #calculate {  
-        width: 285px;  
-        border: 3px solid gray; 
-        margin-top: 20px;
-        border-radius: 3px;  
-        padding: 20px;  
-        background-color: red;  
-    }  
-    
-    .formstyle  {  
-        width: 300px;  
-        height: 515px;  
-        margin: auto;  
-        border: 3px solid skyblue;  
-        border-radius: 5px;  
-        padding: 20px;  
-    }  
-    
-    
-    
-    input  {  
-        width: 20px;  
-        background-color: green;  
-        color: white;  
-        border: 3px solid gray;  
-        border-radius: 5px;  
-        padding: 20px 40px;  
-        margin: 5px;  
-        font-size: 15px;  
-        cursor: pointer;
-    }  
-    
-    
-    #calc {  
-        width: 245px;  
-        height: 60px;
-        border: 5px solid black;  
-        border-radius: 3px;  
-        padding: 20px;  
-        margin: auto;  
-        font-size: 35px;
-        text-align: right;
-        cursor: auto;
-    }  
-    
-</style>  
-</head>  
+#standard12a, #standard12 {
+	display: none;
+}
+</style>
+</head>
 <body>
-    <h1> TNEB Bill Calculator </h1>  
-    <div class= "formstyle">  
-        <form name = "form1" onsubmit="return solve();">  
-            <input id = "calc" type ="text" name = "answer" id="answer">
-            <br><br>  
 
-            <input type = "button" value = "1" onclick = "dis('1')">  
-            <input type = "button" value = "2" onclick = "dis('2')">  
-            <input type = "button" value = "3" onclick = "dis('3')">  
-            <br>
-                
-            <input type = "button" value = "4" onclick = "dis('4')">  
-            <input type = "button" value = "5" onclick = "dis('5')">  
-            <input type = "button" value = "6" onclick = "dis('6')">  
-            <br>
-                
-            <input type = "button" value = "7" onclick = "dis('7')">  
-            <input type = "button" value = "8" onclick = "dis('8')">  
-            <input type = "button" value = "9" onclick = "dis('9')">
-            <br>
-                
-                
-            <input type = "button" value = "." onclick = "dis('.')">  
-            <input type = "button" value = "0" onclick = "dis('0')">  
-            <input type = "button" value = "C" onclick = "clr()">  
-            <br>   
-
-            <input type = "submit" value = "Calculate" id= "calculate">
-            <br>   
-        </form>  
+<div class="form-style-10">
+<h1>12th Std Mark Calculator</h1>
+<form onsubmit="myFunction();  return false;" id="form12">
+    <div class="section" id="standard10a"><span>1</span>10th Standard</div>
+    <div class="inner-wrap" id="standard10">
+        <label for="tam">Tamil : </label>
+        <input type="number" id="tam" name="tam" min="0" max="100"><br><br>
+        <label for="eng">English : </label>
+        <input type="number" id="eng" name="eng" min="0" max="100"><br><br>
+        <label for="mat">Maths : </label>
+        <input type="number" id="mat" name="mat" min="0" max="100"><br><br>
+        <label for="sci">Science : </label>
+        <input type="number" id="sci" name="sci" min="0" max="100"><br><br>
+        <label for="soc">Social : </label>
+        <input type="number" id="soc" name="soc" min="0" max="100"><br><br>
     </div>
-    <p style="text-align:center; margin-top: 30px;">This site was created by <a href="https://www.facebook.com/gowdhammurugesh24/" target="_blank">Gowdham</a></p>
-</body>  
+
+    <div class="section" id="standard11a"><span>2</span>11th Standard</div>
+    <div class="inner-wrap" id="standard11">
+        <label for="tam11">Tamil : </label>
+        <input type="number" id="tam11" name="tam11" min="0" max="100"><br><br>
+        <label for="eng11">English : </label>
+        <input type="number" id="eng11" name="eng11" min="0" max="100"><br><br>
+        <label for="mat11">Maths : </label>
+        <input type="number" id="mat11" name="mat11" min="0" max="100"><br><br>
+        <label for="phy11">Physics : </label>
+        <input type="number" id="phy11" name="phy11" min="0" max="100"><br><br>
+        <label for="chem11">Chemistry : </label>
+        <input type="number" id="chem11" name="chem11" min="0" max="100"><br><br>
+        <label for="bio11">Biology : </label>
+        <input type="number" id="bio11" name="bio11" min="0" max="100"><br><br>
+    </div>
+    
+    <div class="section" id="standard12a"><span>1</span>12th Standard</div>
+    <div class="inner-wrap" id="standard12">
+        <label for="tam12">Tamil : </label>
+        <input type="text" id="tam12" disabled><br><br>
+        <label for="eng12">English : </label>
+        <input type="text" id="eng12" disabled><br><br>
+        <label for="mat12">Maths : </label>
+        <input type="text" id="mat12" disabled><br><br>
+        <label for="phy12">Physics : </label>
+        <input type="text" id="phy12" disabled><br><br>
+        <label for="chem12">Chemistry : </label>
+        <input type="text" id="chem12" disabled><br><br>
+        <label for="bio12">Biology : </label>
+        <input type="text" id="bio12" disabled><br><br>
+        <h2 id="total"></h2>
+    	<p id="cutoff"></p>
+    </div>
+    
+    <div class="button-section">
+     <input type="submit" name="Sign Up" />
+    </div>
+    
+</form>
+</div>
+
+  <script>
+	function myFunction() {
+
+  	//getting 10th marks
+  	var tam = parseInt(document.getElementById("tam").value);
+    var eng = parseInt(document.getElementById("eng").value);
+    var mat = parseInt(document.getElementById("mat").value);
+    var sci = parseInt(document.getElementById("sci").value);
+    var soc = parseInt(document.getElementById("soc").value);
+  
+    //getting 11th marks
+    var tam11 = parseInt(document.getElementById("tam11").value);
+    var eng11 = parseInt(document.getElementById("eng11").value);
+    var mat11 = parseInt(document.getElementById("mat11").value);
+    var phy11 = parseInt(document.getElementById("phy11").value);
+    var chem11 = parseInt(document.getElementById("chem11").value);
+    var bio11 = parseInt(document.getElementById("bio11").value);
+
+    //declaring variables to find 10th std highest three marks
+    var largest;
+    var largest1;
+    var largest2;
+
+    //1st highest mark
+    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+      largest = tam;
+      tam = 0;
+    }
+    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+      largest = eng;
+      eng = 0;
+    }
+    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+      largest = mat;
+      mat = 0;
+    }
+    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+      largest = sci;
+      sci = 0;
+    }
+    else {
+      largest = soc;
+      soc = 0;
+    }
+
+    //2nd highest mark
+    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+      largest1 = tam;
+      tam = 0;
+    }
+    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+      largest1 = eng;
+      eng = 0;
+    }
+    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+      largest1 = mat;
+      mat = 0;
+    }
+    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+      largest1 = sci;
+      sci = 0;
+    }
+    else {
+      largest1 = soc;
+      soc = 0;
+    }
+
+    //3rd highest mark
+    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+      largest2 = tam;
+      tam = 0;
+    }
+    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+      largest2 = eng;
+      eng = 0;
+    }
+    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+      largest2 = mat;
+      mat = 0;
+    }
+    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+      largest2 = sci;
+      sci = 0;
+    }
+    else {
+      largest2 = soc;
+      soc = 0;
+    }
+
+    //30% from 3 highest scored subjects from 10th
+    var sslc = largest + largest1 + largest2;
+    sslc = sslc / 3;
+    sslc = (sslc / 100) * 30;
+
+    //sum of each hsc subjects by sslc average
+    var tam60 = ((tam11 / 100) * 30) + sslc;
+    var eng60 = ((eng11 / 100) * 30) + sslc;
+    var mat60 = ((mat11 / 100) * 30) + sslc;
+    var phy60 = ((phy11 / 100) * 30) + sslc;
+    var chem60 = ((chem11 / 100) * 30) + sslc;
+    var bio60 = ((bio11 / 100) * 30) + sslc;
+
+    //Converting 60% of marks to 100% marks
+    var tam100 = (tam60/60) * 100;
+    var eng100 = (eng60/60) * 100;
+    var mat100 = (mat60/60) * 100;
+    var phy100 = (phy60/60) * 100;
+    var chem100 = (chem60/60) * 100;
+    var bio100 = (bio60/60) * 100;
+
+    //Total marks in 12th standard
+    var total = tam100 + eng100 + mat100 + phy100 + chem100 + bio100;
+
+    //Engineering cut-off mark calculation
+    var cutoff = mat100 + (phy100/2) + (chem100/2);
+    
+    document.getElementById("standard10a").style.display = "none";
+    document.getElementById("standard10").style.display = "none";
+    document.getElementById("standard11a").style.display = "none";
+    document.getElementById("standard11").style.display = "none";
+    
+    document.getElementById("standard12a").style.display = "block";
+    document.getElementById("standard12").style.display = "block";
+    
+    document.getElementById("tam12").setAttribute('value', tam100);
+    document.getElementById("eng12").setAttribute('value', eng100);
+    document.getElementById("mat12").setAttribute('value', mat100);
+    document.getElementById("phy12").setAttribute('value', phy100);
+    document.getElementById("chem12").setAttribute('value', chem100);
+    document.getElementById("bio12").setAttribute('value', bio100);
+    
+
+    document.getElementById("total").innerHTML = "Total = " + total;
+
+    document.getElementById("cutoff").innerHTML = "Engineering cut-off mark = " + cutoff;
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    
+  </script>
+
+</body>
 </html>
