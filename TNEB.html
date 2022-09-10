@@ -2,6 +2,7 @@
 <html lang = "en">  
 <head>  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title> TNEB Bill Calculator </title>
 
 <script>
@@ -31,18 +32,36 @@
              let a = parseInt(x);
              let b;
 
-             if (a>=0 && a<=100){
-                b = "Free";
-			 } 
-             else if (a>100 && a<=200){
-                b = (a - 100) * 1.5 + 20;
-			 } 
-             else if (a>200 && a<=500){
-                b = (a - 200) * 3 + 200 + 30;
-			 } 
-             else{
-                b = (a - 500) * 6.6 + (100 * 3.5) + (300 * 4.6) + 50;
-             }
+             if(a<=500)
+             {
+                if (a>=0 && a<=100){
+                    b = "Free";
+                } 
+                else if (a>100 && a<=200){
+                    b = (a - 100) * 2.25;
+                } 
+                else if (a>200 && a<=400){
+                    b = (a - 200) * 4.50 + (100 * 2.25);
+                } 
+                else{
+                    b = (a - 400) * 6 + (100 * 2.25) + (200 * 4.5);
+                }
+            }
+            else
+            {
+                if (a>500 && a<=600){
+                    b = (a - 500) * 8 + (300 * 4.5) + (100 * 6);
+                }
+                else if (a>600 && a<=800){
+                    b = (a-600) * 9 + (100 * 8) + (300 * 4.5) + (100 * 6);
+                } 
+                else if (a>800 && a<=1000){
+                    b = (a-800) * 10 + (200 * 9) + (100 * 8) + (300 * 4.5) + (100 * 6);
+                } 
+                else{
+                    b = (a-1000) * 11 + (200 * 10) + (200 * 9) + (100 * 8) + (300 * 4.5) + (100 * 6);
+                }
+            }
 
              var ans = b.toString();
 
@@ -57,10 +76,26 @@
 
 </script>
 
-<style>  
+<style> 
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     h1 {  
         text-align: center;  
+        padding-bottom: 10px !important;
         padding: 23px;  
+        background-color: skyblue;  
+        color: white; 
+        margin-bottom: 0; 
+    }  
+
+    p {  
+        margin-top: 0;
+        text-align: center;
+        padding-top: 0 !important;
+        padding: 15px;  
         background-color: skyblue;  
         color: white;  
     }  
@@ -109,11 +144,44 @@
         text-align: right;
         cursor: auto;
     }  
+
+    .footer {
+    text-align: center;
+	width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: gray;
+  color: white;
+  padding: 8px;
+  }
+  .fa {
+    padding: 5px;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .fa-envelope {
+    background: #dd4b39;
+    color: white;
+  }
+
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
     
 </style>  
 </head>  
 <body>
-    <h1> TNEB Bill Calculator </h1>  
+    <h1> TNEB Bill Calculator</h1>
+    <p>(As per revised tariff on 10.09.2022)</p>
     <div class= "formstyle">  
         <form name = "form1" onsubmit="return solve();">  
             <input id = "calc" type ="text" name = "answer" id="answer">
@@ -144,12 +212,19 @@
             <br>   
         </form>  
     </div>
-    <p style="text-align:center; margin-top: 30px;">This site was created by <a href="https://www.facebook.com/gowdhammurugesh24/" target="_blank">Gowdham</a></p>
-    
-<div style="display: none;">
-    <a href='https://www.symptoma.es/'>symptom checker español</a>
-    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/858166/t/0"></script>
-</div>
+
+<div class="footer" id="footer">
+	<span><span style="font-size: 12px;">Powered by</span> <a href="https://gowdham.herokuapp.com/" target="_blank" style="color: white">Gowdham M</a> | Reach me at <a href="mailto:gowdhammurugesh24@gmail.com" target="_blank" class="fa fa-envelope"></a> <a href="https://www.linkedin.com/in/gowdham-murugesan/" target="_blank" class="fa fa-linkedin"></a> <a href="fb://profile/100008861406990" target="_blank" class="fa fa-facebook" id="phonescreen"></a> <a href="https://www.facebook.com/gowdhammurugesh24/" target="_blank" class="fa fa-facebook" id="laptopscreen"></a></span>
+  </div>
+
+  <script>
+	if(screen.width < 600) {
+      document.getElementById("laptopscreen").style.display = "none";
+    }
+    else {
+      document.getElementById("phonescreen").style.display = "none";
+    }
+  </script>
 
 </body>  
 </html>
