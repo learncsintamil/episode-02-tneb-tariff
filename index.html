@@ -4,9 +4,38 @@
 <meta name="google-site-verification" content="vRfmTqhVn-CcFFETvd17F9WhH3TSbEizHc2djDTEOq0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<noscript><h3> You must have JavaScript enabled in order to use this order form. Please 
+	enable JavaScript and then reload this page in order to continue. </h3> 
+	<meta HTTP-EQUIV="refresh" content=0;url="javascriptNotEnabled.php"></noscript>
 <title> TNEB Bill Calculator </title>
 
 <script>
+    // disable right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+ 
+    document.onkeydown = function (e) {
+ 
+        // disable F12 key
+        if(e.keyCode == 123) {
+            return false;
+        }
+ 
+        // disable I key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+            return false;
+        }
+ 
+        // disable J key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+        }
+ 
+        // disable U key
+        if(e.ctrlKey && e.keyCode == 85) {
+            return false;
+        }
+    }
+
          function dis(val)
          {
             var amount = document.getElementById("calc").value;
