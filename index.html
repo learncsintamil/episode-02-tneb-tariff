@@ -30,36 +30,271 @@
          {
              let x = document.getElementById("calc").value
              let a = parseInt(x);
+             let temp = a;
              let b;
+             let dyn;
 
              if(a<=500)
              {
                 if (a>=0 && a<=100){
                     b = "Free";
+                    dyn = 0;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 } 
                 else if (a>100 && a<=200){
                     b = (a - 100) * 2.25;
+                    dyn = (a - 100) * 2.25;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - 100 Units</td>
+                        <td>0</td>
+                        </tr>
+                        <tr>
+                        <td>101 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+b+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 } 
                 else if (a>200 && a<=400){
                     b = (a - 200) * 4.50 + (100 * 2.25);
+                    dyn = (a - 200) * 4.50;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - 100 Units</td>
+                        <td>0</td>
+                        </tr>
+                        <tr>
+                        <td>101 - 200 Units</td>
+                        <td>225</td>
+                        </tr>
+                        <tr>
+                        <td>201 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+b+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 } 
                 else{
                     b = (a - 400) * 6 + (100 * 2.25) + (200 * 4.5);
+                    dyn = (a - 400) * 6;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - 100 Units</td>
+                        <td>0</td>
+                        </tr>
+                        <tr>
+                        <td>101 - 200 Units</td>
+                        <td>225</td>
+                        </tr>
+                        <tr>
+                        <td>201 - 400 Units</td>
+                        <td>900</td>
+                        </tr>
+                        <tr>
+                        <td>401 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+b+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
             }
             else
             {
                 if (a>500 && a<=600){
                     b = (a - 500) * 8 + (300 * 4.5) + (100 * 6);
+                    dyn = (a - 500) * 8;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - 100 Units</td>
+                        <td>0</td>
+                        </tr>
+                        <tr>
+                        <td>101 - 400 Units</td>
+                        <td>1350</td>
+                        </tr>
+                        <tr>
+                        <td>401 - 500 Units</td>
+                        <td>600</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                        <td>501 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+b+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
                 else if (a>600 && a<=800){
                     b = (a-600) * 9 + (100 * 8) + (300 * 4.5) + (100 * 6);
+                    dyn = (a - 600) * 9;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - 100 Units</td>
+                        <td>0</td>
+                        </tr>
+                        <tr>
+                        <td>101 - 400 Units</td>
+                        <td>1350</td>
+                        </tr>
+                        <tr>
+                        <td>401 - 500 Units</td>
+                        <td>600</td>
+                        </tr>
+                        <tr>
+                        <td>501 - 600 Units</td>
+                        <td>800</td>
+                        </tr>
+                        <tr>
+                        <td>601 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+b+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 } 
                 else if (a>800 && a<=1000){
                     b = (a-800) * 10 + (200 * 9) + (100 * 8) + (300 * 4.5) + (100 * 6);
+                    dyn = (a - 800) * 10;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - 100 Units</td>
+                        <td>0</td>
+                        </tr>
+                        <tr>
+                        <td>101 - 400 Units</td>
+                        <td>1350</td>
+                        </tr>
+                        <tr>
+                        <td>401 - 500 Units</td>
+                        <td>600</td>
+                        </tr>
+                        <tr>
+                        <td>501 - 600 Units</td>
+                        <td>800</td>
+                        </tr>
+                        <tr>
+                        <td>601 - 800 Units</td>
+                        <td>1800</td>
+                        </tr>
+                        <tr>
+                        <td>801 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+b+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 } 
                 else{
                     b = (a-1000) * 11 + (200 * 10) + (200 * 9) + (100 * 8) + (300 * 4.5) + (100 * 6);
+                    dyn = (a - 1000) * 11;
+                    document.getElementById("table").innerHTML = `
+                    <table>
+                        <tr>
+                        <th>Consumed Units</th>
+                        <th>`+temp+`</th>
+                        </tr>
+                        <tr>
+                        <td>0 - 100 Units</td>
+                        <td>0</td>
+                        </tr>
+                        <tr>
+                        <td>101 - 400 Units</td>
+                        <td>1350</td>
+                        </tr>
+                        <tr>
+                        <td>401 - 500 Units</td>
+                        <td>600</td>
+                        </tr>
+                        <tr>
+                        <td>501 - 600 Units</td>
+                        <td>800</td>
+                        </tr>
+                        <tr>
+                        <td>601 - 800 Units</td>
+                        <td>1800</td>
+                        </tr>
+                        <tr>
+                        <td>801 - 1000 Units</td>
+                        <td>2000</td>
+                        </tr>
+                        <tr>
+                        <td>1001 - `+temp+` Units</td>
+                        <td>`+dyn+`</td>
+                        </tr>
+                        <tr>
+                        <td>Total</td>
+                        <td>`+b+`</td>
+                        </tr>
+                    </table>`
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
             }
 
@@ -99,6 +334,44 @@
         background-color: skyblue;  
         color: white;  
     }  
+
+    table, td, th {  
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table {
+  /* border-collapse: collapse; */
+  width: 300px;
+  overflow-x:scroll;
+  margin: auto;
+  background: #eeeeee;
+  border-collapse: collapse;
+  font-weight: bold;
+}
+
+table td:first-child {
+    color: #0033ff; 
+}
+table td:last-child {
+    color: #cc0000; 
+}
+
+th, td {
+  padding: 8px;
+}
+
+th {
+    font-size: 20px;
+}
+
+td {
+    font-size: 18px;
+}
+
+#table {
+    margin: 20px 0 80px 0;
+}
     
     #calculate {  
         width: 285px;  
@@ -212,6 +485,8 @@
             <br>   
         </form>  
     </div>
+    
+    <div id="table"></div>
 
 <div class="footer" id="footer">
 	<span><span style="font-size: 12px;">Powered by</span> <a href="https://gowdham.herokuapp.com/" target="_blank" style="color: white">Gowdham M</a> | Reach me at <a href="mailto:gowdhammurugesh24@gmail.com" target="_blank" class="fa fa-envelope"></a> <a href="https://www.linkedin.com/in/gowdham-murugesan/" target="_blank" class="fa fa-linkedin"></a> <a href="fb://profile/100008861406990" target="_blank" class="fa fa-facebook" id="phonescreen"></a> <a href="https://www.facebook.com/gowdhammurugesh24/" target="_blank" class="fa fa-facebook" id="laptopscreen"></a></span>
