@@ -1,6 +1,6 @@
 # Learn CS in Tamil - Code Reviews - Episode #2
 
-[Episode Link](https://www.learncsintamil.com/code-reviews/episode-02-tneb-tariff)
+[Episode Link](https://www.learncsintamil.com/series/code-reviews/episode-02-tneb-tariff)
 
 Reviewing the [TNEB Tariff Calculator App](https://github.com/gowdham-murugesan/TNEB) by Gowdham (https://github.com/gowdham-murugesan)
 
